@@ -1,0 +1,259 @@
+@font-face {
+    font-family: 'daddy';
+    src: url("fonts/Daddy Cartoon.ttf") format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url('img/planofundo.png') center center no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: hwb(204 18% 9%);
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header .search {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    max-width: 800px;
+    width: 100%;
+}
+
+.header .search input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 600px; /* Define a largura máxima da barra de pesquisa */
+}
+
+.header .search .menu-item {
+    margin-left: 10px;
+    color: #666;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.header .menu-item:last-child {
+    margin-left: auto; /* Move o perfil para o canto direito */
+}
+
+.highlight {
+    background-color: yellow;
+    transition: background-color 0.5s ease-out;
+}
+
+/* Estilos para o menu que se abre a partir da esquerda */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.side-menu.open {
+    transform: translateX(0);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #333;
+    cursor: pointer;
+    float: right;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'daddy';
+    margin: 20px 0;
+}
+
+p, span {
+    font-size: 16px;
+    color: #333;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px; /* Ajustado para subir o botão */
+}
+
+.round-button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    width: 220px;
+    height: 60px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.round-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Efeito de zoom no hover */
+}
+
+h2 {
+    margin-top: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 15px 0;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+/* Estilos do menu inferior */
+.bottom-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(173, 216, 230, 0.8);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+.bottom-menu .menu-item {
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease-in-out;
+    padding: 5px 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.bottom-menu .menu-item i {
+    display: block;
+    font-size: 24px;
+}
+
+.bottom-menu .menu-item:hover, .bottom-menu .menu-item:focus {
+    color: #007bff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container-dad {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 80px; /* Espaço para o cabeçalho */
+    margin-bottom: 60px; /* Espaço suficiente para o menu inferior */
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 800px; /* Define a largura máxima */
+    margin: 0 auto; /* Centraliza a barra */
+    position: relative;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    padding: 12px 20px; /* Mais padding para um aspecto mais espaçoso */
+    border: 2px solid #007BFF; /* Borda azul clara */
+    border-radius: 30px; /* Bordas arredondadas */
+    font-size: 16px;
+    width: 100%;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-bar input:focus {
+    border-color: #0056b3; /* Cor da borda quando em foco */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Sombra azul suave quando em foco */
+    outline: none; /* Remove o contorno padrão */
+}
+
+.search-bar .search-icon {
+    position: absolute;
+    right: 15px; /* Posiciona o ícone à direita dentro da barra de pesquisa */
+    font-size: 18px;
+    color: #007BFF;
+    cursor: pointer;
+}
+
+/* Cabeçalho */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Garante que o conteúdo se distribua corretamente */
+    padding: 20px;
+    background-color: hwb(204 18% 9%);
+    color: #fff;
+}
+
+/* Item do menu no cabeçalho */
+.menu-item {
+    margin-left: 10px;
+    color: #fff; /* Cor dos ícones e textos no cabeçalho */
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* Perfil */
+.header .profile-icon {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Move o perfil para o extremo direito */
+}
+
+.header .profile-icon i {
+    font-size: 24px;
+    color: #fff;
+}
+
+.header .profile-icon span {
+    margin-left: 5px;
+}
