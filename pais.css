@@ -192,6 +192,24 @@ ul li a {
 }
 
 .search-bar {
+    position: relative; /* Necessário para posicionar o ícone */
+}
+
+.search-bar input {
+    padding-right: 40px; /* Espaço suficiente para o ícone */
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px; /* Lupa à direita */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #007BFF;
+    cursor: pointer;
+}
+
+.search-bar {
     display: flex;
     align-items: center;
     width: 100%;

@@ -199,6 +199,7 @@ ul li a {
     margin-bottom: 60px; /* Espaço suficiente para o menu inferior */
 }
 
+
 .search-bar {
     display: flex;
     align-items: center;
@@ -230,6 +231,13 @@ ul li a {
     font-size: 18px;
     color: #007BFF;
     cursor: pointer;
+    margin-left: 0%;
+
+}
+
+.search-container button img {
+    width: 20px;
+    height: 20px;
 }
 
 /* Cabeçalho */
@@ -265,3 +273,6 @@ ul li a {
 .header .profile-icon span {
     margin-left: 5px;
 }
+
+
+
