@@ -11,6 +11,7 @@
 }
 
 body {
+    position: relative;
     background: url('img/planofundo.png') center center no-repeat;
     background-size: cover;
     min-height: 100vh;
@@ -274,5 +275,34 @@ ul li a {
     margin-left: 5px;
 }
 
-
-
+.container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .image-container {
+    margin-right: 310px; /* Espaçamento entre imagem e balão */
+  }
+  
+  .image-container img {
+    max-width: 500px; /* Ajuste o tamanho da imagem conforme necessário */
+    border-radius: 50%;
+    margin-left: 75%;
+  }
+  
+  .speech-bubble {
+    position: relative;
+    padding: 10px 20px;
+    background-color: #eaeaea;
+    border-radius: 10px;
+  }
+  
+  .speech-bubble::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    border: 10px solid transparent;
+    border-right-color: #eaeaea;
+    transform: translateY(-50%);
+  }
