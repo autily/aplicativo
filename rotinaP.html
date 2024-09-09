@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="pais.css">
+    <title>Rotina - Pais</title>
+</head>
+<body>
+    <header class="header">
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Pesquisar...">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        </div>   
+        <div class="profile-icon">
+            <i class="fa-solid fa-user"></i>
+        </div>
+    </header>
+
+    <div class="container-dad">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f5f5f5;
+                margin: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            table {
+                width: 80%;
+                border-collapse: collapse;
+                background-color: #ffffff;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+            thead {
+                background-color: #007bff;
+                color: #ffffff;
+            }
+            th, td {
+                padding: 12px 15px;
+                text-align: left;
+            }
+            th {
+                font-weight: bold;
+                font-size: 16px;
+            }
+            td {
+                border-bottom: 1px solid #ddd;
+            }
+            td.editable {
+                cursor: pointer;
+                transition: background-color 0.3s, color 0.3s;
+            }
+            td.editable:hover {
+                background-color: #e9ecef;
+                color: #007bff;
+            }
+            tr:hover {
+                background-color: #f1f1f1;
+            }
+        </style>
+        <div class></div>
+    </head>
+    <body>
+    
+    <h2>Rotina - Pais</h2>
+    
+    <table id="editableTable">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Horario</th>
+                <th>Atividade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="editable"></td>
+                <td class="editable"></td>
+                <td class="editable"></td>
+            </tr>
+            <tr>
+                <td class="editable"></td>
+                <td class="editable"></td>
+                <td class="editable"></td>
+            </tr>
+            <tr>
+                <td class="editable"></td>
+                <td class="editable"></td>
+                <td class="editable"></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <script>
+        // Função para tornar a célula editável
+        function makeEditable(cell) {
+            const originalText = cell.innerHTML;
+            cell.contentEditable = true;
+            cell.focus();
+    
+            cell.addEventListener('blur', function() {
+                cell.contentEditable = false;
+                if (cell.innerHTML.trim() === '') {
+                    cell.innerHTML = originalText; // Restaura o texto original se estiver vazio
+                }
+            });
+        }
+    
+        // Adiciona evento de clique às células editáveis
+        document.querySelectorAll('#editableTable .editable').forEach(cell => {
+            cell.addEventListener('click', function() {
+                makeEditable(this);
+            });
+        });
+    </script>
+    <div class="button-container">
+        <a href="pais.html" class="round-button">Salvar</a>
+    </div>
+    </div>
+    
+    <!-- MENU INFERIOR -->
+    <div class="bottom-menu">
+        <a href="#rotina" class="menu-item">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>Rotina</span>
+        </a>
+        <a href="#rotina" class="menu-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Localização</span>
+        </a>
+        <a href="#rotina" class="menu-item">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Evolução</span>
+        </a>
+        <a href="#apoio" class="menu-item">
+            <i class="fa-solid fa-comments"></i>
+            <span>Apoio</span>
+        </a>       
+    </div>
+
+    <script src="pais.js"></script>
+</body>
+</html>
