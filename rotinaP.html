@@ -7,11 +7,159 @@
     <link rel="stylesheet" href="pais.css">
     <title>Rotina - Pais</title>
 </head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+    }
+
+    .header {
+        background-color: #007bff;
+        color: #ffffff;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .search-bar {
+        display: flex;
+        align-items: center;
+        background-color: #ffffff;
+        border-radius: 20px;
+        padding: 5px 10px;
+        width: 70%;
+    }
+
+    .search-bar input {
+        border: none;
+        outline: none;
+        padding: 5px;
+        width: 100%;
+    }
+
+    .search-bar .search-icon {
+        color: #007bff;
+        margin-left: 5px;
+    }
+
+    .profile-icon {
+        color: #ffffff;
+        font-size: 24px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+        margin: 20px 0;
+    }
+
+    .container-dad {
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        margin-top: 8%;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #007bff;
+        color: #ffffff;
+        font-weight: bold;
+    }
+
+    td.editable {
+        background-color: #f5f5f5;
+        cursor: pointer;
+    }
+
+    td button {
+        background-color: #007bff;
+        color: #ffffff;
+        border: none;
+        padding: 5px 10px;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-left: 5px;
+    }
+
+    td button:hover {
+        background-color: #0056b3;
+    }
+
+    .button-container {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .button-container button {
+        background-color: #007bff;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .button-container button:hover {
+        background-color: #0056b3;
+    }
+
+    .bottom-menu {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-around;
+        padding: 10px 0;
+    }
+
+    .bottom-menu a {
+        text-align: center;
+        color: #007bff;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .bottom-menu a .menu-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bottom-menu a:hover {
+        color: #0056b3;
+    }
+
+    .fa-solid {
+        font-size: 24px;
+        margin-bottom: 5px;
+    }
+</style>
+
 <body>
     <header class="header">
-        <a href="pais.html">
-            <i class="fa-solid fa-house"></i>
-        </a>  
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="Pesquisar...">
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
@@ -22,109 +170,35 @@
     </header>
 
     <div class="container-dad">
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f5f5f5;
-                margin: 20px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-            }
-            table {
-                width: 80%;
-                border-collapse: collapse;
-                background-color: #ffffff;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                border-radius: 8px;
-                overflow: hidden;
-            }
-            thead {
-                background-color: #007bff;
-                color: #ffffff;
-            }
-            th, td {
-                padding: 12px 15px;
-                text-align: left;
-            }
-            th {
-                font-weight: bold;
-                font-size: 16px;
-            }
-            td {
-                border-bottom: 1px solid #ddd;
-            }
-            td.editable {
-                cursor: pointer;
-                transition: background-color 0.3s, color 0.3s;
-            }
-            td.editable:hover {
-                background-color: #e9ecef;
-                color: #007bff;
-            }
-            tr:hover {
-                background-color: #f1f1f1;
-            }
-        </style>
-        <div class></div>
-    </head>
-    <body>
+        <h2>Rotina - Pais</h2>
     
-    <h2>Rotina - Pais</h2>
-    
-    <table id="editableTable">
-        <thead>
-            <tr>
-                <th>Data</th>
-                <th>Horario</th>
-                <th>Atividade</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="editable"></td>
-                <td class="editable"></td>
-                <td class="editable"></td>
-            </tr>
-            <tr>
-                <td class="editable"></td>
-                <td class="editable"></td>
-                <td class="editable"></td>
-            </tr>
-            <tr>
-                <td class="editable"></td>
-                <td class="editable"></td>
-                <td class="editable"></td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <script>
-        // Função para tornar a célula editável
-        function makeEditable(cell) {
-            const originalText = cell.innerHTML;
-            cell.contentEditable = true;
-            cell.focus();
-    
-            cell.addEventListener('blur', function() {
-                cell.contentEditable = false;
-                if (cell.innerHTML.trim() === '') {
-                    cell.innerHTML = originalText; // Restaura o texto original se estiver vazio
-                }
-            });
-        }
-    
-        // Adiciona evento de clique às células editáveis
-        document.querySelectorAll('#editableTable .editable').forEach(cell => {
-            cell.addEventListener('click', function() {
-                makeEditable(this);
-            });
-        });
-    </script>
-    <div class="button-container">
-        <a href="pais.html" class="round-button">Salvar</a>
-    </div>
+        <table id="editableTable">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Horario</th>
+                    <th>Atividade</th>
+                    <th><i class="fa-solid fa-square-check"></i></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="editable"></td>
+                    <td class="editable"></td>
+                    <td class="editable"></td>
+                    <td>
+                        <button class="editar-btn" onclick="editarLinha(this)">Editar</button>
+                        <button class="apagar-btn" onclick="apagarLinha(this)">Apagar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="button-container">
+            <button onclick="adicionarLinha()">Adicionar Linha</button>
+            <button onclick="salvar()">Salvar</button>
+            <button onclick="apagarTudo()">Apagar Tudo</button>
+        </div>
     </div>
     
     <!-- MENU INFERIOR -->
@@ -147,6 +221,6 @@
         </a>       
     </div>
 
-    <script src="pais.js"></script>
+    <script src="rotinaP.js"></script>
 </body>
 </html>
