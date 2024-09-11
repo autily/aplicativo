@@ -62,3 +62,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+ // Função para abrir o drawer de perfil
+ function openProfileDrawer() {
+    document.getElementById("profileDrawer").classList.add("open");
+}
+
+// Função para fechar o drawer de perfil
+function closeProfileDrawer() {
+    document.getElementById("profileDrawer").classList.remove("open");
+}
+
+// Função para atualizar a foto de perfil
+function updateProfilePic() {
+    const fileInput = document.getElementById('fileInput');
+    const profileImg = document.getElementById('profileImg');
+    const file = fileInput.files[0];
+    
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            profileImg.src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+    }
+}

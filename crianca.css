@@ -358,3 +358,98 @@ ul li a {
     color: #555;
 }
 
+/* Drawer que será a tela de perfil */
+.profile-drawer {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: -10px; /* Ajusta para que o drawer não grude na borda direita */
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 20px;
+    color: black;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2); /* Sombra ajustada para o lado direito */
+}
+
+.profile-drawer h2 {
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
+.profile-drawer .close-btn {
+    position: absolute;
+    top: 20px;
+    left: 25px; /* Botão de fechar posicionado do lado esquerdo dentro do drawer */
+    font-size: 36px;
+    text-decoration: none;
+    color: black;
+}
+
+.profile-drawer .profile-picture {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-drawer .profile-picture img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-drawer .profile-picture input {
+    margin-top: 10px;
+}
+
+.profile-drawer form {
+    padding: 0 20px;
+}
+
+.profile-drawer label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.profile-drawer input, .profile-drawer select {
+    width: calc(100% - 20px); /* Ajusta a largura dos inputs para levar em conta o padding */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.profile-drawer button {
+    width: calc(100% - 20px); /* Ajusta a largura do botão para levar em conta o padding */
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-drawer button:hover {
+    background-color: #0056b3;
+}
+
+/* Transição para abrir o drawer */
+.profile-drawer.open {
+    width: 300px; /* Largura do drawer quando aberto */
+    right: 0; /* Ajusta a posição quando o drawer está aberto */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .profile-drawer {
+        width: 100%;
+        right: 0;
+        box-shadow: none; /* Remove a sombra em telas menores */
+    }
+
+    .profile-drawer.open {
+        width: 100%;
+    }
+}

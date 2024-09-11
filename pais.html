@@ -13,31 +13,27 @@
             <input type="text" id="searchInput" placeholder="Pesquisar...">
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
         </div>   
-        <div class="profile-icon">
+        <!-- Ícone de perfil que abre o drawer -->
+        <a href="javascript:void(0);" onclick="openProfileDrawer()">
             <i class="fa-solid fa-user"></i>
-        </div>
+        </a>
     </header>
 
-    
+    <!-- Conteúdo da página -->
     <div class="container-kids">
-        <h1>Bem-vindo ao autily!</h1>
+        <h1>Bem-vindo ao autily Pai/responsável!</h1>
         <div class="button-container">
             <a href="crianca.html" class="round-button">Modo Criança</a>
         </div>
     </div>
 
-    
     <!-- MENU INFERIOR -->
     <div class="bottom-menu">
         <a href="rotinaP.html" class="menu-item">
             <i class="fa-solid fa-calendar-check"></i>
             <span>Rotina</span>
         </a>
-        <a href="localização" class="menu-item">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Localização</span>
-        </a>
-        <a href="evolução" class="menu-item">
+        <a href="evolução.html" class="menu-item">
             <i class="fa-solid fa-chart-line"></i>
             <span>Evolução</span>
         </a>
@@ -45,6 +41,43 @@
             <i class="fa-solid fa-comments"></i>
             <span>Apoio</span>
         </a>       
+    </div>
+
+    <!-- Tela de perfil (Drawer) -->
+    <div id="profileDrawer" class="profile-drawer">
+        <a href="javascript:void(0);" class="close-btn" onclick="closeProfileDrawer()">×</a>
+        <h2>Perfil</h2>
+        <!-- Adiciona campo de foto -->
+        <div class="profile-picture">
+            <img src="img/perfil.png" alt="Foto de Perfil" id="profileImg">
+            <input type="file" id="fileInput" onchange="updateProfilePic()">
+        </div>
+        <!-- Campos do formulário -->
+        <form id="profileForm">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="type">Tipo de usuário:</label>
+            <select id="type" name="type" required>
+                <option value="crianca">Criança</option>
+                <option value="pai">Pai/Responsável</option>
+            </select>
+
+            <label for="phone">Contato:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="childName">Nome do Filho(a):</label>
+            <input type="text" id="childName" name="childName">
+
+            <label for="supportLevel">Nível de Suporte:</label>
+            <select id="supportLevel" name="supportLevel" required>
+                <option value="1">Nível 1</option>
+                <option value="2">Nível 2</option>
+                <option value="3">Nível 3</option>
+            </select>
+
+            <button type="submit">Salvar</button>
+        </form>
     </div>
 
     <script src="pais.js"></script>
