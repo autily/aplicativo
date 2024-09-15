@@ -358,21 +358,31 @@ ul li a {
     color: #555;
 }
 
-/* Drawer que será a tela de perfil */
 .profile-drawer {
-    height: 100%;
-    width: 0;
     position: fixed;
-    z-index: 1000;
+    right: -100%;
     top: 0;
-    right: -10px; /* Ajusta para que o drawer não grude na borda direita */
+    width: 300px;
+    height: 100%;
     background-color: white;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 20px;
-    color: black;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2); /* Sombra ajustada para o lado direito */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease;
+    z-index: 1000;
 }
+
+.profile-drawer.open {
+    right: 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1100; /* Certifica-se de que o botão está sempre visível */
+}
+
 
 .profile-drawer h2 {
     text-align: center;
@@ -435,10 +445,16 @@ ul li a {
     background-color: #0056b3;
 }
 
-/* Transição para abrir o drawer */
 .profile-drawer.open {
-    width: 300px; /* Largura do drawer quando aberto */
-    right: 0; /* Ajusta a posição quando o drawer está aberto */
+    right: 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
 }
 
 /* Responsividade para telas menores */

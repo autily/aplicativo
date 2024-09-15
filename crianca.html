@@ -15,8 +15,8 @@
             <input type="text" id="searchInput" placeholder="Pesquisar...">
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
         </div>   
-         <!-- Ícone de perfil que abre o drawer -->
-         <a href="javascript:void(0);" onclick="openProfileDrawer()">
+        <!-- Ícone de perfil que abre o drawer -->
+        <a href="javascript:void(0);" onclick="openProfileDrawer()" style="color: white; font-size: 140%;">
             <i class="fa-solid fa-user"></i>
         </a>
     </header>
@@ -40,7 +40,7 @@
 
     <!-- Drawer de Perfil -->
     <div id="profileDrawer" class="profile-drawer">
-        <a href="javascript:void(0)" class="close-btn" onclick="closeProfileDrawer()">&times;</a>
+        <a href="javascript:void(0)" class="close-btn" id="closeButton">&times;</a>
         <div class="profile-picture">
             <img id="profileImg" src="img/perfil.png" alt="Profile Picture">
             <input type="file" id="fileInput" onchange="updateProfilePic()">
@@ -53,7 +53,7 @@
                 <option value="criança">Criança</option>
                 <option value="pai">Pai/Responsável</option>
             </select>
-            <label for="phone">idade:</label>
+            <label for="phone">Idade:</label>
             <input type="number" id="age" name="age" required>
             <label for="phone">Contato do responsável:</label>
             <label for="supportLevel">Nível de Suporte:</label>

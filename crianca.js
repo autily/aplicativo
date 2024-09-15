@@ -1,21 +1,21 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const menuBtn = document.querySelector('.menu-btn');
     const sideMenu = document.getElementById('sideMenu');
     const closeBtn = document.getElementById('closeBtn');
 
     if (menuBtn && sideMenu && closeBtn) {
-        menuBtn.addEventListener('click', function() {
+        menuBtn.addEventListener('click', function () {
             sideMenu.classList.toggle('open');
         });
 
-        closeBtn.addEventListener('click', function() {
+        closeBtn.addEventListener('click', function () {
             sideMenu.classList.remove('open');
         });
     }
 
     const searchButton = document.querySelector('.search .menu-item');
     if (searchButton) {
-        searchButton.addEventListener('click', function(e) {
+        searchButton.addEventListener('click', function (e) {
             e.preventDefault(); // Evitar o comportamento padrão do link
 
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
@@ -40,11 +40,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const searchButton = document.querySelector('.search-icon');
 
     if (searchButton) {
-        searchButton.addEventListener('click', function(e) {
+        searchButton.addEventListener('click', function (e) {
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
             const headings = document.querySelectorAll('h1');
 
@@ -63,8 +63,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
- // Função para abrir o drawer de perfil
- function openProfileDrawer() {
+// Função para abrir o drawer de perfil
+function openProfileDrawer() {
     document.getElementById("profileDrawer").classList.add("open");
 }
 
@@ -73,17 +73,18 @@ function closeProfileDrawer() {
     document.getElementById("profileDrawer").classList.remove("open");
 }
 
-// Função para atualizar a foto de perfil
-function updateProfilePic() {
-    const fileInput = document.getElementById('fileInput');
-    const profileImg = document.getElementById('profileImg');
-    const file = fileInput.files[0];
-    
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            profileImg.src = e.target.result;
-        }
-        reader.readAsDataURL(file);
+// Detectar cliques fora do drawer para fechá-lo
+document.addEventListener('click', function (event) {
+    const profileDrawer = document.getElementById("profileDrawer");
+    const isClickInsideDrawer = profileDrawer.contains(event.target);
+    const isProfileIconClicked = event.target.closest('.fa-user');
+
+    // Fechar o drawer se o clique for fora dele e ele estiver aberto
+    if (!isClickInsideDrawer && !isProfileIconClicked && profileDrawer.classList.contains('open')) {
+        closeProfileDrawer();
     }
-}
+});
+
+// Adicionar evento de fechamento ao clicar no "X"
+document.querySelector('.close-btn').addEventListener('click', closeProfileDrawer);
+
