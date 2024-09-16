@@ -88,3 +88,19 @@ document.addEventListener('click', function (event) {
 // Adicionar evento de fechamento ao clicar no "X"
 document.querySelector('.close-btn').addEventListener('click', closeProfileDrawer);
 
+let lastScrollTop = 0;
+const bottomMenu = document.querySelector('.bottom-menu');
+
+window.addEventListener('scroll', function() {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+        // Se está descendo, esconde o menu
+        bottomMenu.classList.add('hidden');
+    } else {
+        // Se está subindo, mostra o menu
+        bottomMenu.classList.remove('hidden');
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Evita valores negativos
+});

@@ -47,7 +47,7 @@ button {
     width: 100%;
     max-width: 600px; /* Aumenta a largura máxima do botão */
     padding: 15px;
-    background-color: #003366;
+    background-color: #0080ff;
     border: none;
     border-radius: 5px;
     color: white;
@@ -57,7 +57,7 @@ button {
 }
 
 button:hover {
-    background-color: #002244;
+    background-color: #0080ff;
 }
 
 .links {
@@ -65,7 +65,7 @@ button:hover {
 }
 
 .links a {
-    color: #003366;
+    color: #0080ff;
     text-decoration: none;
     margin: 0 10px;
 }

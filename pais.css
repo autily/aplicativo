@@ -455,3 +455,72 @@ button:hover {
         width: 100%;
     }
 }
+
+.container {
+    display: flex;
+    align-items: center; /* Alinha verticalmente a imagem e o balão */
+    margin-top: 7%;
+    margin: 20px;
+}
+
+.image {
+    width: 35%; 
+    height: 35%;
+    margin-left: 20%;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px; 
+}
+
+.speech-bubble{
+    position: relative;
+    top: -320px;
+    margin-left: 55%;
+    background: #f1f0f0;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 250px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Triângulo do balão de fala */
+.speech-bubble:after {
+    content: '';
+    position: absolute;
+    top: 50%; /* Centraliza o triângulo verticalmente */
+    right: -10px; /* Posiciona o triângulo na borda direita */
+    transform: translateY(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent #f1f0f0; /* Triângulo virado para a esquerda */
+}
+
+.bottom-menu {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #4d9dee;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.bottom-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.bottom-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Classe que oculta o menu */
+.bottom-menu.hidden {
+    transform: translateY(100%);
+}

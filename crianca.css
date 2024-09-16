@@ -469,3 +469,71 @@ ul li a {
         width: 100%;
     }
 }
+
+.container {
+    margin-top: 7%;
+    display: flex;
+    align-items: center; 
+    margin: 20px; 
+}
+
+.image {
+    margin-top: 5%;
+    width: 40%; 
+    height: 40%; 
+    margin-left: 20%;
+    border-radius: 50%;
+    margin-right: 15px; 
+}
+
+
+.speech-bubble {
+    margin-top: 7%;
+    position: relative;
+    background: #f1f0f0;
+    border-radius: 10px; 
+    padding: 10px; 
+    max-width: 250px; 
+    font-size: 16px;
+    color: #333; 
+}
+
+/* Triângulo do balão de fala */
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: 10px; /* Ajusta a posição do triângulo em relação ao balão */
+    left: -15px; /* Ajusta a posição do triângulo em relação ao balão */
+    border-width: 10px;
+    border-style: solid;
+    border-color: #f1f0f0 transparent transparent transparent; /* Cor do triângulo */
+}
+
+.bottom-menu {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #4d9dee;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.bottom-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.bottom-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Classe que oculta o menu */
+.bottom-menu.hidden {
+    transform: translateY(100%);
+}
