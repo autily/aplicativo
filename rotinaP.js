@@ -1,18 +1,42 @@
-// Função para adicionar uma nova linha com campos de data e hora
+// Função para tornar a célula editável
+function makeEditable(cell) {
+    const originalText = cell.innerHTML;
+    cell.contentEditable = true;
+    cell.focus();
+
+    cell.addEventListener('blur', function() {
+        cell.contentEditable = false;
+        if (cell.innerHTML.trim() === '') {
+            cell.innerHTML = originalText; // Restaura o texto original se estiver vazio
+        }
+        salvar(); // Salva automaticamente após a edição
+    });
+}
+
+// Adiciona evento de clique às células editáveis
+function addEditableListeners() {
+    document.querySelectorAll('#editableTable .editable').forEach(cell => {
+        cell.addEventListener('click', function() {
+            makeEditable(this);
+        });
+    });
+}
+
+// Função para adicionar uma nova linha
 function adicionarLinha() {
     var tabela = document.querySelector('#editableTable tbody');
     var tr = document.createElement('tr');
     tr.innerHTML = `
-        <td><input type="date" class="editable"></td>
-        <td><input type="time" class="editable"></td>
-        <td contenteditable="true" class="editable"></td>
+        <td class="editable">Nova Data</td>
+        <td class="editable">Nova Hora</td>
+        <td class="editable">Nova Atividade</td>
         <td>
             <button class="editar-btn" onclick="editarLinha(this)">Editar</button>
             <button class="apagar-btn" onclick="apagarLinha(this)">Apagar</button>
         </td>
     `;
     tabela.appendChild(tr);
-    salvar(); // Salva automaticamente após adicionar a linha
+    addEditableListeners(); // Adiciona os eventos de edição
 }
 
 // Função para apagar uma linha
@@ -21,34 +45,36 @@ function apagarLinha(botao) {
     salvar(); // Salva automaticamente após apagar a linha
 }
 
-// Função para salvar os dados da tabela no LocalStorage
+// Função para salvar os dados da tabela no Local Storage
 function salvar() {
     var tabelaDados = [];
     document.querySelectorAll('#editableTable tbody tr').forEach(function(tr) {
-        var linhaDados = {
-            data: tr.querySelector('td:nth-child(1) input').value, // Coleta o valor do campo de data
-            hora: tr.querySelector('td:nth-child(2) input').value, // Coleta o valor do campo de hora
-            atividade: tr.querySelector('td:nth-child(3)').textContent // Coleta o valor da atividade (editável)
-        };
+        var linhaDados = [];
+        tr.querySelectorAll('td.editable').forEach(function(td) {
+            linhaDados.push(td.textContent);
+        });
         tabelaDados.push(linhaDados);
     });
     localStorage.setItem('tabelaDados', JSON.stringify(tabelaDados));
 }
 
-// Função para carregar os dados da tabela salvos no LocalStorage
+// Função para carregar os dados da tabela salvos no Local Storage
 function carregarTabela() {
     var dados = localStorage.getItem('tabelaDados');
     if (dados) {
         dados = JSON.parse(dados);
         var tabela = document.querySelector('#editableTable tbody');
-        tabela.innerHTML = ''; // Limpa o corpo da tabela
+        tabela.innerHTML = ''; // Limpar o corpo da tabela
 
         dados.forEach(function(linhaDados) {
             var tr = document.createElement('tr');
-            tr.innerHTML = `
-                <td><input type="date" class="editable" value="${linhaDados.data}"></td>
-                <td><input type="time" class="editable" value="${linhaDados.hora}"></td>
-                <td contenteditable="true" class="editable">${linhaDados.atividade}</td>
+            linhaDados.forEach(function(celulaDados) {
+                var td = document.createElement('td');
+                td.classList.add('editable');
+                td.textContent = celulaDados;
+                tr.appendChild(td);
+            });
+            tr.innerHTML += `
                 <td>
                     <button class="editar-btn" onclick="editarLinha(this)">Editar</button>
                     <button class="apagar-btn" onclick="apagarLinha(this)">Apagar</button>
@@ -56,10 +82,11 @@ function carregarTabela() {
             `;
             tabela.appendChild(tr);
         });
+        addEditableListeners(); // Adiciona os eventos de edição
     }
 }
 
-// Função para apagar todos os dados da tabela e do LocalStorage
+// Função para apagar todas as linhas da tabela e do Local Storage
 function apagarTudo() {
     if (confirm("Deseja apagar todos os dados?")) {
         localStorage.removeItem('tabelaDados');
@@ -67,7 +94,7 @@ function apagarTudo() {
     }
 }
 
-// Função para editar uma linha (faz as células ficarem editáveis)
+// Função para editar uma linha
 function editarLinha(botao) {
     var tr = botao.closest('tr');
     tr.querySelectorAll('td.editable').forEach(td => {
@@ -75,26 +102,12 @@ function editarLinha(botao) {
     });
 }
 
-// Função para tornar a célula editável
-function makeEditable(cell) {
-    if (cell.contentEditable !== "true") {
-        cell.contentEditable = "true";
-        cell.focus();
-    }
-
-    cell.addEventListener('blur', function() {
-        cell.contentEditable = "false";
-        salvar(); // Salva automaticamente após a edição
-    });
-}
-
-// Carrega os dados da tabela quando a página é carregada
+// Carrega a tabela ao carregar a página
 window.onload = carregarTabela;
 
-// Função de fechar perfil não implementada
-document.querySelector('.close-btn')?.addEventListener('click', closeProfileDrawer);
+// Adicionar evento de fechamento ao clicar no "X"
+document.querySelector('.close-btn').addEventListener('click', closeProfileDrawer);
 
-// Função para esconder/mostrar menu inferior com base no scroll
 let lastScrollTop = 0;
 const bottomMenu = document.querySelector('.bottom-menu');
 
@@ -102,10 +115,12 @@ window.addEventListener('scroll', function() {
     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
     if (currentScroll > lastScrollTop) {
-        bottomMenu.classList.add('hidden'); // Esconde o menu quando está rolando para baixo
+        // Se está descendo, esconde o menu
+        bottomMenu.classList.add('hidden');
     } else {
-        bottomMenu.classList.remove('hidden'); // Mostra o menu quando rola para cima
+        // Se está subindo, mostra o menu
+        bottomMenu.classList.remove('hidden');
     }
 
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Previne valores negativos
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Evita valores negativos
 });

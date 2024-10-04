@@ -4,23 +4,15 @@ function carregarTabela() {
     if (dados) {
         dados = JSON.parse(dados);
         var tabela = document.querySelector('#readonlyTable tbody');
-        tabela.innerHTML = ''; // Limpa o corpo da tabela
+        tabela.innerHTML = ''; // Limpar o corpo da tabela
 
         dados.forEach(function(linhaDados) {
             var tr = document.createElement('tr');
-            var tdData = document.createElement('td');
-            var tdHora = document.createElement('td');
-            var tdAtividade = document.createElement('td');
-
-            // Preencher as células com os dados
-            tdData.textContent = linhaDados.data; // Campo de data
-            tdHora.textContent = linhaDados.hora; // Campo de hora
-            tdAtividade.textContent = linhaDados.atividade; // Campo de atividade
-
-            // Adiciona as células à linha
-            tr.appendChild(tdData);
-            tr.appendChild(tdHora);
-            tr.appendChild(tdAtividade);
+            linhaDados.forEach(function(celulaDados) {
+                var td = document.createElement('td');
+                td.textContent = celulaDados;
+                tr.appendChild(td);
+            });
             tabela.appendChild(tr);
         });
     }
@@ -33,4 +25,3 @@ function voltar() {
 
 // Carregar a tabela ao carregar a página
 window.onload = carregarTabela;
-
