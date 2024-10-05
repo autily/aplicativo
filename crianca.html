@@ -3,421 +3,346 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criança</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Area Criança</title>
+
     <style>
     .scrollable-app {
-        height: 100vh; /* Altura da tela */
-        overflow-y: auto; /* Permite rolagem vertical */
-        -webkit-overflow-scrolling: touch; /* Melhora a rolagem em dispositivos móveis */
-       }
-
-
-        @font-face {
-            font-family: 'Daddy Cartoon';
-            src: url('fonts/DaddyCartoon.ttf') format('truetype'); 
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #ffffff;
-            color: #00a2ff;
-            position: relative;
-            overflow: hidden;
-            min-height: 100vh;
-        }
-
-        header {
-            background-color: #66B9FA; /* Cor azul */
-            padding: 10px; /* Espaçamento interno */
-        }
-
-        .menu {
-            display: flex;
-            justify-content: space-between; /* Espaça os itens para as extremidades */
-            align-items: center; /* Alinha verticalmente */
-        }
-
-        .logo {
-            height: 40px; 
-            margin-left: 47%;
-        }
-
-        .perfil-icon {
-            font-size: 24px; /* Tamanho do ícone */
-            color: white; /* Cor do ícone */
-            cursor: pointer; /* Muda o cursor ao passar sobre o ícone */
-        }
-
-        h1 {
-            color: #fff;
-        }
-
-        p {
-            color: #fff;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            padding: 20px; 
-        }
-
-        .image-section img {
-            width: 80%;
-            border-radius: 50%;
-            max-width: 300px; 
-        }
-
-        .text-section {
-            background-color: #00a2ff;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-            width: 90%; 
-            max-width: 500px; 
-        } 
-
-        .text-section h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        .text-section p {
-            font-size: 1em;
-            margin-bottom: 20px;
-        }
-
-        .text-section button {
-            background-color: #4DF0E0;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        .text-section button:hover {
-            background-color: #3cc4bb;
-        }
-
-        .icone-container {
-            background-color: rgba(114, 162, 250, 0.8); 
-            border-radius: 2%; 
-            padding: 15px; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
-        }
-
-        .icones-app {
-            display: flex;
-            justify-content: center;
-            margin: 0;
-        }
-
-        .icones-app a {
-            margin: 0 10px;
-        }
-
-        .icones-app img {
-            width: 40px;
-            height: 40px;
-            transition: transform 0.2s;
-        }
-
-        .icones-app img:hover {
-            transform: scale(1.1);
-        }
-
-        .background-bubbles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .bubble {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.5;
-            background-color: #66B9FA;
-            animation: rise 10s infinite;
-        }
-
-        @keyframes rise {
-            0% {
-                transform: translateY(100%);
-            }
-
-            100% {
-                transform: translateY(-100%);
-            }
-        }
-
-        .bubble:nth-child(1) {
-            width: 100px;
-            height: 100px;
-            left: 10%;
-            top: 50%;
-            animation-duration: 7s;
-        }
-
-        .bubble:nth-child(2) {
-            width: 150px;
-            height: 150px;
-            left: 70%;
-            top: 70%;
-            animation-duration: 12s;
-        }
-
-        .bubble:nth-child(3) {
-            width: 50px;
-            height: 50px;
-            left: 30%;
-            top: 20%;
-            animation-duration: 10s;
-        }
-
-        .bubble:nth-child(4) {
-            width: 80px;
-            height: 80px;
-            left: 50%;
-            top: 80%;
-            animation-duration: 15s;
-        }
-
-        .bubble:nth-child(5) {
-            width: 120px;
-            height: 120px;
-            left: 40%;
-            top: 30%;
-            animation-duration: 8s;
-        }
-
-        .bubble:nth-child(6) {
-            width: 90px;
-            height: 90px;
-            left: 20%;
-            top: 10%;
-            animation-duration: 14s;
-        }
-
-        .bubble:nth-child(7) {
-            width: 60px;
-            height: 60px;
-            left: 60%;
-            top: 60%;
-            animation-duration: 9s;
-        }
-
-        .bubble:nth-child(8) {
-            width: 70px;
-            height: 70px;
-            left: 80%;
-            top: 50%;
-            animation-duration: 11s;
-        }
-
-        .bubble:nth-child(9) {
-            width: 100px;
-            height: 100px;
-            left: 30%;
-            top: 40%;
-            animation-duration: 13s;
-        }
-
-        .bubble:nth-child(10) {
-            width: 110px;
-            height: 110px;
-            left: 10%;
-            top: 20%;
-            animation-duration: 10s;
-        }
-
-        .bubble:nth-child(11) {
-            width: 140px;
-            height: 140px;
-            left: 50%;
-            top: 80%;
-            animation-duration: 15s;
-        }
-
-        .bubble:nth-child(12) {
-            width: 80px;
-            height: 80px;
-            left: 70%;
-            top: 10%;
-            animation-duration: 9s;
-        }
-
-        .botao {
-            background-color: #2986ff; 
-            padding: 15px 30px; 
-            border: none; 
-            border-radius: 25px;
-            font-size: 16px; 
-            font-family: 'Arial', sans-serif; 
-            font-weight: bold; 
-            cursor: pointer; 
-            transition: background-color 0.3s; 
-        } 
-              
-        .texto{
-            color: black;
-        } 
-
-        .menu-section {
-            background-color: #00a2ff;
-            padding: 10px; 
-            border-radius: 10px;
-            margin-top: 20px;
-            width: 90%; 
-            max-width: 500px; 
-            text-align: center;
-        } 
-
-        .menu-section img {
-            display: block;  
-            max-width: 100%; 
-            height: auto;
-        }   
-
-        .text-section h1,
-        .text-section p {
-             margin: 10px 0; /* Espaçamento entre o título e o parágrafo */
+        min-height: 100vh; /* Garante que a altura seja no mínimo do tamanho da tela */
+        display: flex;
+        flex-direction: column;
     }
 
-        .menu-section button {
-            background-color: #4DF0E0;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 10px;
+    /* Mantém o rodapé no final da página */
+    .main-content {
+        flex: 1;
+        padding-bottom: 30px; /* Adiciona um espaço antes do fim da página */
+    }
+
+    footer {
+            background-color: #66B9FA; /* Cor do fundo do footer */
+            color: #fff; /* Cor do texto */
+            text-align: center; /* Centraliza o texto */
+            padding: 20px; /* Espaço interno */
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .footer-content {
+            max-width: 800px; /* Largura máxima */
+            margin: 0 auto; /* Centraliza o footer */
+        }
+        .footer-content p {
+            margin: 5px 0; /* Margem entre os parágrafos */
+        }
+        .footer-content a {
+            color: #fff; /* Cor dos links */
+            text-decoration: none; /* Remove o sublinhado dos links */
+        }
+        .footer-content a:hover {
+            text-decoration: underline; /* Sublinha ao passar o mouse */
         }
 
-        .menu-section button:hover {
-            background-color: #3cc4bb;
+    @font-face {
+        font-family: 'Daddy Cartoon';
+        src: url('fonts/DaddyCartoon.ttf') format('truetype'); 
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #ffffff;
+        color: #00a2ff;
+        overflow-x: hidden;
+    }
+
+    header {
+        background-color: #66B9FA;
+        padding: 10px;
+    }
+
+    .menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        height: 40px; 
+        margin-left: 47%;
+    }
+
+    .perfil-icon {
+    font-size: 50px; /* Aumenta o tamanho do ícone */
+    color: white;
+    margin-left: auto; /* Empurra o ícone para o lado direito */
+}
+
+
+    h1, p {
+        color: #fff;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+    }
+
+    nav ul li {
+        margin: 0 20px;
+    }
+
+    nav ul li a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .image-section img {
+        width: 120%;
+        border-radius: 50%;
+        max-width: 300px; 
+    }
+
+    .text-section {
+        background-color: #00a2ff;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        width: 90%;
+        max-width: 500px;
+    }
+
+    .text-section h1 {
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+
+    .text-section p {
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+
+    .text-section button {
+        background-color: #77c2ff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .text-section button:hover {
+        background-color: #77c2ff;
+    }
+
+    .icone-container {
+        background-color: rgba(114, 162, 250, 0.8); 
+        border-radius: 2%;
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .icones-app {
+        display: flex;
+        justify-content: center;
+    }
+
+    .icones-app a {
+        margin: 0 10px;
+    }
+
+    .icones-app img {
+        width: 40px;
+        height: 40px;
+        transition: transform 0.2s;
+    }
+
+    .icones-app img:hover {
+        transform: scale(1.1);
+    }
+
+    .background-bubbles {
+        position: fixed; /* Corrige a posição das bolhas em relação à tela */
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1; /* Garante que as bolhas fiquem atrás dos outros elementos */
+        overflow: hidden;
+    }
+
+    .bubble {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.5;
+        background-color: #66B9FA;
+        animation: rise 15s infinite linear; 
+    }
+
+    .icon {
+    display: inline-block; 
+    font-size: 24px; 
+    color: white; 
+    }
+
+    @keyframes rise {
+        0% {
+            transform: translateY(100vh); 
         }
-        
-
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .text-section {
-                width: 95%; /* Largura maior em telas pequenas */
-                max-width: 95%; /* Para garantir que a seção de texto não ultrapasse a tela */
-            }
-
-            .image-section img {
-                width: 90%; /* Para ajustar a imagem em telas menores */
-                max-width: 200px; /* Ajuste para não ficar muito grande em telas pequenas */
-            }
-
-            .social-icons img {
-                width: 35px; /* Reduzindo ícones em telas menores */
-                height: 35px;
-            }
+        100% {
+            transform: translateY(-100vh); 
         }
+    }
+
+    .bubble:nth-child(1) { width: 100px; height: 100px; left: 10%; animation-duration: 7s; }
+    .bubble:nth-child(2) { width: 150px; height: 150px; left: 70%; animation-duration: 12s; }
+    .bubble:nth-child(3) { width: 50px; height: 50px; left: 30%; animation-duration: 10s; }
+    .bubble:nth-child(4) { width: 80px; height: 80px; left: 50%; animation-duration: 15s; }
+    .bubble:nth-child(5) { width: 60px; height: 60px; left: 20%; animation-duration: 8s; }
+    .bubble:nth-child(6) { width: 120px; height: 120px; left: 80%; animation-duration: 18s; }
+    .bubble:nth-child(7) { width: 90px; height: 90px; left: 40%; animation-duration: 20s; }
+    .bubble:nth-child(8) { width: 110px; height: 110px; left: 60%; animation-duration: 14s; }
+    .bubble:nth-child(9) { width: 130px; height: 130px; left: 15%; animation-duration: 22s; }
+    .bubble:nth-child(10) { width: 70px; height: 70px; left: 75%; animation-duration: 9s; }
+
+    .botao {
+        background-color: #2986ff; 
+        padding: 15px 30px;
+        border: none;
+        border-radius: 25px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .texto { color: rgb(255, 255, 255); }
+
+    .menu-section {
+        background-color: #00a2ff;
+        padding: 10px;
+        border-radius: 10px;
+        margin-top: 20px;
+        width: 90%;
+        max-width: 500px;
+        text-align: center;
+    }
+
+    .menu-section img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .menu-section h1, .menu-section p {
+        margin: 10px 0;
+    }
+
+    .menu-section button {
+        background-color: #0400ff;
+        color: #ffffff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .menu-section button:hover {
+        background-color: #3cc4bb;
+    }
+
+    .img-menu{
+        margin-left: 35%;
+    }
+
+    @media (max-width: 768px) {
+        .text-section { width: 95%; }
+        .image-section img { width: 90%; max-width: 200px; }
+        .social-icons img { width: 35px; height: 35px; }
+    }
     </style>
-
-
 </head>
-    <header>
-        <div class="menu">
-            <img src="img/autily azul claro.png" alt="Logo" class="logo"> <!-- Substitua 'sua-imagem.png' pelo caminho da sua imagem -->
-            <i class="fas fa-user-circle perfil-icon"></i> <!-- Ícone de perfil -->
-         </div>
-    </header>
-</head> 
+
+<header>
+    <img src="img/autily azul claro.png" alt="Logo" class="logo">      
+</header>
 
 <body>
-<div class="scrollable-app">    
-    <main>
-        <div class="background-bubbles">
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-        </div>
+    <div class="scrollable-app">    
+        <main class="main-content">
+            <div class="background-bubbles">
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+            </div>
 
-        <div class="container">
-            <div class="image-section">
-                <img src="img/ia (1).png" alt="Nina" class="nina">
-            </div>
-            <button class="botao">Àrea dos pais</button>
-            <div class="text-section">
-                <h1>Olá, amigo!</h1>
-                <p>Bem-vindo ao Autily. Selecione uma das funções no menu abaixo e utilize o app.</p>              
-            </div>
-            <div class="menu-section">
-                <a href="jogos.html"><img src="img/jogos.png" alt="" class="menu"></a>
-                <h1>Jogos</h1>
-                <p>Clique aqui para jogar joguinhos incriveis e divirta-se</p>              
-            </div>
-            <div class="menu-section">
-                <a href="rotinaC.html"><img src="img/rotina.png" alt="" class="menu"></a>
-                <h1>Rotina</h1>
-                <p>Clique aqui e veja a rotina que seus papais deixaram pra vc!</p>              
-            </div>
-                    </div>
+            <div class="container">
+                <div class="image-section">
+                    <img src="img/ia (1).png" alt="Nina">
                 </div>
-            </div>
-        </div>
+                <button class="botao">Área dos pais</button>
+                <div class="text-section">
+                    <h1>Bem-vindo amigo!</h1>
+                    <p>Esta é a área dedicada às crianças. Aqui você pode interagir com jogos, rotinas e muito mais!</p>
+                </div>
 
-    </main>
-</div>
+                <div class="menu-section">
+                    <img src="img/jogos.png" alt="Imagem de pintura" class="img-menu">
+                    <h1>Jogos</h1>
+                    <p>Hora de Brincar! Escolha um dos nossos jogos e divirta-se!</p>
+                    <button class="botao">Começar a Jogar</button>
+                </div>
+
+                
+                <div class="menu-section">
+                    <img src="img/rotina.png" alt="imagem com relogio" class="img-menu">
+                    <h1>Rotina</h1>
+                    <p>Clique aqui e veja a rotina que seus pais deixaram para você!</p>
+                    <button class="botao">Ver Rotina</button>
+                </div>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-space"></div>
+            <p>&copy; 2024 Autily</p>
+            <p>Desenvolvido por: Ana Cordeiro, Ana Martins, Ariany Andrade, Daniel Silva e Danielle Trindade</p>
+            <p>Contato: <a href="autilyy@gmail.com">autilyy@gmail.com</a></p>
+        </footer>
+    </div>
 </body>
 </html>

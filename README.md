@@ -1,3 +1,2 @@
 # aplicativo
-
-https://autily.github.io/aplicativo/index.html
+02-10
