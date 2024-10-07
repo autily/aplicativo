@@ -7,19 +7,19 @@
     <title>Area Criança</title>
 
     <style>
-    .scrollable-app {
-        min-height: 100vh; /* Garante que a altura seja no mínimo do tamanho da tela */
-        display: flex;
-        flex-direction: column;
-    }
+        .scrollable-app {
+            min-height: 100vh; /* Garante que a altura seja no mínimo do tamanho da tela */
+            display: flex;
+            flex-direction: column;
+        }
 
-    /* Mantém o rodapé no final da página */
-    .main-content {
-        flex: 1;
-        padding-bottom: 30px; /* Adiciona um espaço antes do fim da página */
-    }
+        /* Mantém o rodapé no final da página */
+        .main-content {
+            flex: 1;
+            padding-bottom: 30px; /* Adiciona um espaço antes do fim da página */
+        }
 
-    footer {
+        footer {
             background-color: #66B9FA; /* Cor do fundo do footer */
             color: #fff; /* Cor do texto */
             text-align: center; /* Centraliza o texto */
@@ -28,269 +28,331 @@
             bottom: 0;
             width: 100%;
         }
+
         .footer-content {
             max-width: 800px; /* Largura máxima */
             margin: 0 auto; /* Centraliza o footer */
         }
+
         .footer-content p {
             margin: 5px 0; /* Margem entre os parágrafos */
         }
+
         .footer-content a {
             color: #fff; /* Cor dos links */
             text-decoration: none; /* Remove o sublinhado dos links */
         }
+
         .footer-content a:hover {
             text-decoration: underline; /* Sublinha ao passar o mouse */
         }
 
-    @font-face {
-        font-family: 'Daddy Cartoon';
-        src: url('fonts/DaddyCartoon.ttf') format('truetype'); 
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #ffffff;
-        color: #00a2ff;
-        overflow-x: hidden;
-    }
-
-    header {
-        background-color: #66B9FA;
-        padding: 10px;
-    }
-
-    .menu {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo {
-        height: 40px; 
-        margin-left: 47%;
-    }
-
-    .perfil-icon {
-    font-size: 50px; /* Aumenta o tamanho do ícone */
-    color: white;
-    margin-left: auto; /* Empurra o ícone para o lado direito */
-}
-
-
-    h1, p {
-        color: #fff;
-    }
-
-    nav ul {
-        display: flex;
-        justify-content: center;
-        list-style: none;
-    }
-
-    nav ul li {
-        margin: 0 20px;
-    }
-
-    nav ul li a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    .container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
-    }
-
-    .image-section img {
-        width: 120%;
-        border-radius: 50%;
-        max-width: 300px; 
-    }
-
-    .text-section {
-        background-color: #00a2ff;
-        padding: 20px;
-        border-radius: 10px;
-        margin-top: 20px;
-        width: 90%;
-        max-width: 500px;
-    }
-
-    .text-section h1 {
-        font-size: 2em;
-        margin-bottom: 10px;
-    }
-
-    .text-section p {
-        font-size: 1em;
-        margin-bottom: 20px;
-    }
-
-    .text-section button {
-        background-color: #77c2ff;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: bold;
-        margin-top: 10px;
-    }
-
-    .text-section button:hover {
-        background-color: #77c2ff;
-    }
-
-    .icone-container {
-        background-color: rgba(114, 162, 250, 0.8); 
-        border-radius: 2%;
-        padding: 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .icones-app {
-        display: flex;
-        justify-content: center;
-    }
-
-    .icones-app a {
-        margin: 0 10px;
-    }
-
-    .icones-app img {
-        width: 40px;
-        height: 40px;
-        transition: transform 0.2s;
-    }
-
-    .icones-app img:hover {
-        transform: scale(1.1);
-    }
-
-    .background-bubbles {
-        position: fixed; /* Corrige a posição das bolhas em relação à tela */
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        z-index: -1; /* Garante que as bolhas fiquem atrás dos outros elementos */
-        overflow: hidden;
-    }
-
-    .bubble {
-        position: absolute;
-        border-radius: 50%;
-        opacity: 0.5;
-        background-color: #66B9FA;
-        animation: rise 15s infinite linear; 
-    }
-
-    .icon {
-    display: inline-block; 
-    font-size: 24px; 
-    color: white; 
-    }
-
-    @keyframes rise {
-        0% {
-            transform: translateY(100vh); 
+        @font-face {
+            font-family: 'Daddy Cartoon';
+            src: url('fonts/DaddyCartoon.ttf') format('truetype'); 
+            font-weight: normal;
+            font-style: normal;
         }
-        100% {
-            transform: translateY(-100vh); 
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    }
 
-    .bubble:nth-child(1) { width: 100px; height: 100px; left: 10%; animation-duration: 7s; }
-    .bubble:nth-child(2) { width: 150px; height: 150px; left: 70%; animation-duration: 12s; }
-    .bubble:nth-child(3) { width: 50px; height: 50px; left: 30%; animation-duration: 10s; }
-    .bubble:nth-child(4) { width: 80px; height: 80px; left: 50%; animation-duration: 15s; }
-    .bubble:nth-child(5) { width: 60px; height: 60px; left: 20%; animation-duration: 8s; }
-    .bubble:nth-child(6) { width: 120px; height: 120px; left: 80%; animation-duration: 18s; }
-    .bubble:nth-child(7) { width: 90px; height: 90px; left: 40%; animation-duration: 20s; }
-    .bubble:nth-child(8) { width: 110px; height: 110px; left: 60%; animation-duration: 14s; }
-    .bubble:nth-child(9) { width: 130px; height: 130px; left: 15%; animation-duration: 22s; }
-    .bubble:nth-child(10) { width: 70px; height: 70px; left: 75%; animation-duration: 9s; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #00a2ff;
+            overflow-x: hidden;
+        }
 
-    .botao {
-        background-color: #2986ff; 
-        padding: 15px 30px;
-        border: none;
-        border-radius: 25px;
-        font-size: 16px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
+        header {
+            background-color: #66B9FA;
+            padding: 10px;
+            position: relative; /* Para que o menu possa ser posicionado dentro do header */
+        }
 
-    .texto { color: rgb(255, 255, 255); }
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .menu-section {
-        background-color: #00a2ff;
-        padding: 10px;
-        border-radius: 10px;
-        margin-top: 20px;
-        width: 90%;
-        max-width: 500px;
-        text-align: center;
-    }
+        .logo {
+            height: 40px; 
+            margin-left: 47%;
+        }
 
-    .menu-section img {
-        display: block;
-        max-width: 100%;
-        height: auto;
-    }
+        .perfil-icon {
+            font-size: 50px; /* Aumenta o tamanho do ícone */
+            color: white;
+            margin-left: auto; /* Empurra o ícone para o lado direito */
+        }
 
-    .menu-section h1, .menu-section p {
-        margin: 10px 0;
-    }
+        h1, p {
+            color: #fff;
+        }
 
-    .menu-section button {
-        background-color: #0400ff;
-        color: #ffffff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: bold;
-        margin-top: 10px;
-    }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
 
-    .menu-section button:hover {
-        background-color: #3cc4bb;
-    }
+        nav ul li {
+            margin: 0 20px;
+        }
 
-    .img-menu{
-        margin-left: 35%;
-    }
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-    @media (max-width: 768px) {
-        .text-section { width: 95%; }
-        .image-section img { width: 90%; max-width: 200px; }
-        .social-icons img { width: 35px; height: 35px; }
-    }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .image-section img {
+            width: 120%;
+            border-radius: 50%;
+            max-width: 300px; 
+        }
+
+        .text-section {
+            background-color: #00a2ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .text-section h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .text-section p {
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+
+        .text-section button {
+            background-color: #77c2ff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .text-section button:hover {
+            background-color: #77c2ff;
+        }
+
+        .icone-container {
+            background-color: rgba(114, 162, 250, 0.8); 
+            border-radius: 2%;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .icones-app {
+            display: flex;
+            justify-content: center;
+        }
+
+        .icones-app a {
+            margin: 0 10px;
+        }
+
+        .icones-app img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.2s;
+        }
+
+        .icones-app img:hover {
+            transform: scale(1.1);
+        }
+
+        .background-bubbles {
+            position: fixed; /* Corrige a posição das bolhas em relação à tela */
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Garante que as bolhas fiquem atrás dos outros elementos */
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.5;
+            background-color: #66B9FA;
+            animation: rise 15s infinite linear; 
+        }
+
+        .icon {
+            display: inline-block; 
+            font-size: 24px; 
+            color: white; 
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(100vh); 
+            }
+            100% {
+                transform: translateY(-100vh); 
+            }
+        }
+
+        .bubble:nth-child(1) { width: 100px; height: 100px; left: 10%; animation-duration: 7s; }
+        .bubble:nth-child(2) { width: 150px; height: 150px; left: 70%; animation-duration: 12s; }
+        .bubble:nth-child(3) { width: 50px; height: 50px; left: 30%; animation-duration: 10s; }
+        .bubble:nth-child(4) { width: 80px; height: 80px; left: 50%; animation-duration: 15s; }
+        .bubble:nth-child(5) { width: 60px; height: 60px; left: 20%; animation-duration: 8s; }
+        .bubble:nth-child(6) { width: 120px; height: 120px; left: 80%; animation-duration: 18s; }
+        .bubble:nth-child(7) { width: 90px; height: 90px; left: 40%; animation-duration: 20s; }
+        .bubble:nth-child(8) { width: 110px; height: 110px; left: 60%; animation-duration: 14s; }
+        .bubble:nth-child(9) { width: 130px; height: 130px; left: 15%; animation-duration: 22s; }
+        .bubble:nth-child(10) { width: 70px; height: 70px; left: 75%; animation-duration: 9s; }
+
+        .botao {
+            background-color: #2986ff; 
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .texto { color: rgb(255, 255, 255); }
+
+        .menu-section {
+            background-color: #00a2ff;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 20px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .menu-section img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .menu-section h1, .menu-section p {
+            margin: 10px 0;
+        }
+
+        .menu-section button {
+            background-color: #0400ff;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .menu-section button:hover {
+            background-color: #3cc4bb;
+        }
+
+        .img-menu {
+            margin-left: 35%;
+        }
+
+        @media (max-width: 768px) {
+            .text-section { width: 95%; }
+            .image-section img { width: 90%; max-width: 200px; }
+            .social-icons img { width: 35px; height: 35px; }
+        }
+
+        /* New styles for the menu */
+        .menu-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background-color: #00a2ff;
+            border-radius: 5px;
+            width: 200px;
+            z-index: 1000;
+        }
+
+        .dropdown a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+
+        .dropdown a:hover {
+            background-color: #77c2ff;
+        }
+
+        /* Modal styles */
+        #page-content {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            z-index: 1001;
+            overflow: auto;
+            padding: 20px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .close {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <header>
     <img src="img/autily azul claro.png" alt="Logo" class="logo">      
+    <div class="menu-container">
+        <i class="fas fa-bars" id="menu-icon" style="font-size: 30px; color: white; cursor: pointer;"></i>
+        <div class="dropdown" id="dropdown-menu">
+            <a href="#" onclick="showPage('perfil')">Perfil</a>
+            <a href="#" onclick="showPage('configuracoes')">Configurações</a>
+            <a href="#" onclick="showPage('ajuda')">Ajuda</a>
+        </div>
+    </div>
 </header>
 
 <body>
@@ -326,14 +388,18 @@
                     <button class="botao">Começar a Jogar</button>
                 </div>
 
-                
                 <div class="menu-section">
                     <img src="img/rotina.png" alt="imagem com relogio" class="img-menu">
                     <h1>Rotina</h1>
                     <p>Clique aqui e veja a rotina que seus pais deixaram para você!</p>
                     <button class="botao">Ver Rotina</button>
                 </div>
+            </div>
 
+            <!-- Modal for page content -->
+            <div id="page-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div id="content"></div>
             </div>
         </main>
 
@@ -344,5 +410,29 @@
             <p>Contato: <a href="autilyy@gmail.com">autilyy@gmail.com</a></p>
         </footer>
     </div>
+
+    <script>
+        document.getElementById('menu-icon').onclick = function() {
+            const dropdown = document.getElementById('dropdown-menu');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        };
+
+        function showPage(page) {
+            let content = '';
+            if (page === 'perfil') {
+                content = '<h2>Perfil</h2><p>Informações do perfil aqui...</p>';
+            } else if (page === 'configuracoes') {
+                content = '<h2>Configurações</h2><p>Informações das configurações aqui...</p>';
+            } else if (page === 'ajuda') {
+                content = '<h2>Ajuda</h2><p>Informações de ajuda aqui...</p>';
+            }
+            document.getElementById('content').innerHTML = content;
+            document.getElementById('page-content').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('page-content').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
