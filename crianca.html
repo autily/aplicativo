@@ -8,50 +8,42 @@
 
     <style>
         .scrollable-app {
-            min-height: 100vh; /* Garante que a altura seja no mínimo do tamanho da tela */
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
-        /* Mantém o rodapé no final da página */
         .main-content {
             flex: 1;
-            padding-bottom: 30px; /* Adiciona um espaço antes do fim da página */
+            padding-bottom: 30px;
         }
 
         footer {
-            background-color: #66B9FA; /* Cor do fundo do footer */
-            color: #fff; /* Cor do texto */
-            text-align: center; /* Centraliza o texto */
-            padding: 20px; /* Espaço interno */
+            background-color: #66B9FA;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
             position: relative;
             bottom: 0;
             width: 100%;
         }
 
         .footer-content {
-            max-width: 800px; /* Largura máxima */
-            margin: 0 auto; /* Centraliza o footer */
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .footer-content p {
-            margin: 5px 0; /* Margem entre os parágrafos */
+            margin: 5px 0;
         }
 
         .footer-content a {
-            color: #fff; /* Cor dos links */
-            text-decoration: none; /* Remove o sublinhado dos links */
+            color: #fff;
+            text-decoration: none;
         }
 
         .footer-content a:hover {
-            text-decoration: underline; /* Sublinha ao passar o mouse */
-        }
-
-        @font-face {
-            font-family: 'Daddy Cartoon';
-            src: url('fonts/DaddyCartoon.ttf') format('truetype'); 
-            font-weight: normal;
-            font-style: normal;
+            text-decoration: underline;
         }
 
         * {
@@ -70,7 +62,7 @@
         header {
             background-color: #66B9FA;
             padding: 10px;
-            position: relative; /* Para que o menu possa ser posicionado dentro do header */
+            position: relative;
         }
 
         .menu {
@@ -85,9 +77,9 @@
         }
 
         .perfil-icon {
-            font-size: 50px; /* Aumenta o tamanho do ícone */
+            font-size: 50px; 
             color: white;
-            margin-left: auto; /* Empurra o ícone para o lado direito */
+            margin-left: auto;
         }
 
         h1, p {
@@ -190,12 +182,12 @@
         }
 
         .background-bubbles {
-            position: fixed; /* Corrige a posição das bolhas em relação à tela */
+            position: fixed;
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
-            z-index: -1; /* Garante que as bolhas fiquem atrás dos outros elementos */
+            z-index: -1;
             overflow: hidden;
         }
 
@@ -205,12 +197,6 @@
             opacity: 0.5;
             background-color: #66B9FA;
             animation: rise 15s infinite linear; 
-        }
-
-        .icon {
-            display: inline-block; 
-            font-size: 24px; 
-            color: white; 
         }
 
         @keyframes rise {
@@ -288,10 +274,8 @@
         @media (max-width: 768px) {
             .text-section { width: 95%; }
             .image-section img { width: 90%; max-width: 200px; }
-            .social-icons img { width: 35px; height: 35px; }
         }
 
-        /* New styles for the menu */
         .menu-container {
             position: absolute;
             top: 10px;
@@ -320,7 +304,6 @@
             background-color: #77c2ff;
         }
 
-        /* Modal styles */
         #page-content {
             display: none;
             position: fixed;
@@ -340,7 +323,137 @@
             font-size: 24px;
             cursor: pointer;
         }
-    </style>
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group button {
+            background-color: #2986ff; 
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #77c2ff;
+        }
+
+        .text-section h1 {
+            margin-bottom: 20px; /* Mais espaço entre o título e o parágrafo */
+        }
+
+        .text-section button {
+            background-color: #77c2ff; /* Azul mais agradável */
+            padding: 12px 25px; /* Tamanho do botão ajustado */
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .text-section button:hover {
+            background-color: #66a5e1; /* Cor ao passar o mouse */
+        }
+
+        .icon-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .icon-buttons button {
+            background-color: #2986ff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 5px; /* Espaço entre os botões */
+        }
+
+        .icon-buttons button:hover {
+            background-color: #77c2ff;
+        }
+
+        .extra-info {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e0f7fa;
+            border-radius: 5px;
+        }
+
+        .add-info-btn {
+            background-color: #2986ff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px; /* Espaço entre os botões */
+            transition: background-color 0.3s;
+        }
+
+        .add-info-btn:hover {
+            background-color: #77c2ff;
+        }
+
+        .add-delete-container {
+            display: flex;
+            justify-content: center; /* Centraliza os botões de adicionar, deletar e editar */
+            margin-top: 10px;
+        }
+
+        .add-delete-container button {
+            margin: 0 10px; /* Espaço entre os botões */
+        }
+
+        .form-group button {
+            display: block; /* Para centralizar */
+            margin: 20px auto; /* Centraliza o botão de salvar */
+            background-color: #2986ff; 
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #77c2ff;
+        }
+
+        #info-list {
+            list-style-type: none; /* Remove marcadores da lista */
+            padding: 0; /* Remove preenchimento */
+        }
+
+        #info-list li {
+            margin: 5px 0; /* Espaçamento entre os itens da lista */
+        }
+
+        #info-list button {
+            margin-left: 10px; /* Espaço entre o texto e os botões */
+        }
+        </style>
 </head>
 
 <header>
@@ -349,7 +462,6 @@
         <i class="fas fa-bars" id="menu-icon" style="font-size: 30px; color: white; cursor: pointer;"></i>
         <div class="dropdown" id="dropdown-menu">
             <a href="#" onclick="showPage('perfil')">Perfil</a>
-            <a href="#" onclick="showPage('configuracoes')">Configurações</a>
             <a href="#" onclick="showPage('ajuda')">Ajuda</a>
         </div>
     </div>
@@ -375,7 +487,9 @@
                 <div class="image-section">
                     <img src="img/ia (1).png" alt="Nina">
                 </div>
-                <button class="botao">Área dos pais</button>
+                <a href="pais.html">
+                    <button class="botao">Área dos pais</button>
+                </a>    
                 <div class="text-section">
                     <h1>Bem-vindo amigo!</h1>
                     <p>Esta é a área dedicada às crianças. Aqui você pode interagir com jogos, rotinas e muito mais!</p>
@@ -385,28 +499,77 @@
                     <img src="img/jogos.png" alt="Imagem de pintura" class="img-menu">
                     <h1>Jogos</h1>
                     <p>Hora de Brincar! Escolha um dos nossos jogos e divirta-se!</p>
-                    <button class="botao">Começar a Jogar</button>
+                    <a href="jogos.html">
+                     <button class="botao">Começar a Jogar</button>
+                    </a>
                 </div>
 
                 <div class="menu-section">
                     <img src="img/rotina.png" alt="imagem com relogio" class="img-menu">
                     <h1>Rotina</h1>
                     <p>Clique aqui e veja a rotina que seus pais deixaram para você!</p>
-                    <button class="botao">Ver Rotina</button>
+                    <a href="rotinaC.html">
+                        <button class="botao">Ver Rotina</button>
+                    </a>
                 </div>
             </div>
 
-            <!-- Modal for page content -->
             <div id="page-content">
                 <span class="close" onclick="closeModal()">&times;</span>
-                <div id="content"></div>
+                <div id="content">
+                    <h2>Perfil</h2>
+                    
+                    <div class="form-group">
+                        <label for="tipo">Tipo:</label>
+                        <select id="tipo" required>
+                            <option value="pai">Pai</option>
+                            <option value="responsavel">Responsável</option>
+                        </select>
+                    </div>
+                    <form id="perfil-form">
+                        <div class="form-group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="idade">Idade:</label>
+                            <input type="number" id="idade" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nivel-autismo">Nível do Autismo:</label>
+                            <select id="nivel-autismo" required>
+                                <option value="leve">Leve</option>
+                                <option value="moderado">Moderado</option>
+                                <option value="severo">Severo</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email do responsável:</label>
+                            <input type="email" id="email" required>
+                        </div>
+
+                        <div class="extra-info" id="extra-info-container">
+                            <h2>Informações Extras</h2>
+                            <div class="form-group">
+                                <label for="extra-info">Adicionar Informação:</label>
+                                <input type="text" id="extra-info" placeholder="Digite aqui...">
+                            </div>
+                            <button class="add-info-btn" onclick="addExtraInfo()">+ Adicionar Informação</button>
+                        
+                            <ul id="info-list"></ul> <!-- Lista para informações adicionais -->
+                        </div>                   
+                        <div class="form-group">
+                            <button type="submit">Salvar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </main>
 
         <footer>
             <div class="footer-space"></div>
             <p>&copy; 2024 Autily</p>
-            <p>Desenvolvido por: Ana Cordeiro, Ana Martins, Ariany Andrade, Daniel Silva e Danielle Trindade</p>
+            <p>Desenvolvido por: Equipe Autily</p>
             <p>Contato: <a href="autilyy@gmail.com">autilyy@gmail.com</a></p>
         </footer>
     </div>
@@ -420,19 +583,93 @@
         function showPage(page) {
             let content = '';
             if (page === 'perfil') {
-                content = '<h2>Perfil</h2><p>Informações do perfil aqui...</p>';
+                content = document.getElementById('content').innerHTML; // Exibe o conteúdo do perfil
             } else if (page === 'configuracoes') {
                 content = '<h2>Configurações</h2><p>Informações das configurações aqui...</p>';
             } else if (page === 'ajuda') {
                 content = '<h2>Ajuda</h2><p>Informações de ajuda aqui...</p>';
             }
+            
             document.getElementById('content').innerHTML = content;
+
+            // Adiciona a funcionalidade de salvar para o formulário
+            if (page === 'perfil') {
+                document.getElementById('perfil-form').onsubmit = function(event) {
+                    event.preventDefault();
+                    alert('Perfil salvo com sucesso!');
+                    closeModal();
+                };
+            }
+
             document.getElementById('page-content').style.display = 'block';
         }
 
         function closeModal() {
             document.getElementById('page-content').style.display = 'none';
         }
+
+        function addExtraInfo() {
+            const extraInfoInput = document.getElementById('extra-info');
+            const extraInfoValue = extraInfoInput.value.trim();
+            if (extraInfoValue) {
+                const extraInfoContainer = document.getElementById('extra-info-container');
+                const newInfo = document.createElement('div');
+                newInfo.textContent = extraInfoValue;
+                extraInfoContainer.appendChild(newInfo);
+                extraInfoInput.value = '';
+            } else {
+                alert('Por favor, insira uma informação.');
+            }
+        }
+        const infoList = [];
+
+        function addExtraInfo() {
+            const extraInfoInput = document.getElementById('extra-info');
+            const info = extraInfoInput.value.trim();
+            
+            if (info) {
+                infoList.push(info);
+                extraInfoInput.value = ''; // Limpa o campo de entrada
+                updateInfoList(); // Atualiza a lista exibida
+            }
+        }
+
+        function deleteInfo(index) {
+            infoList.splice(index, 1);
+            updateInfoList(); // Atualiza a lista exibida
+        }
+
+        function editInfo(index) {
+            const newInfo = prompt('Edite a informação:', infoList[index]);
+            if (newInfo !== null) {
+                infoList[index] = newInfo;
+                updateInfoList(); // Atualiza a lista exibida
+            }
+        }
+
+        function updateInfoList() {
+            const infoListElement = document.getElementById('info-list');
+            infoListElement.innerHTML = ''; // Limpa a lista antes de re-popular
+
+            infoList.forEach((info, index) => {
+                const li = document.createElement('li');
+                li.textContent = info;
+
+                const editButton = document.createElement('button');
+                editButton.textContent = '✏️ Editar';
+                editButton.onclick = () => editInfo(index);
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = '🗑️ Deletar';
+                deleteButton.onclick = () => deleteInfo(index);
+
+                li.appendChild(editButton);
+                li.appendChild(deleteButton);
+                infoListElement.appendChild(li);
+            });
+        }
+
+
     </script>
 </body>
 </html>
