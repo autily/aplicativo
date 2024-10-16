@@ -418,7 +418,7 @@
 
         .add-delete-container {
             display: flex;
-            justify-content: center; /* Centraliza os botões de adicionar, deletar e editar */
+            justify-content: center;
             margin-top: 10px;
         }
 
@@ -549,12 +549,11 @@
                         </div>
 
                         <div class="extra-info" id="extra-info-container">
-                            <h2>Informações Extras</h2>
+                            <h2>Adicionar Informações Extras</h2>
                             <div class="form-group">
-                                <label for="extra-info">Adicionar Informação:</label>
                                 <input type="text" id="extra-info" placeholder="Digite aqui...">
                             </div>
-                            <button class="add-info-btn" onclick="addExtraInfo()">+ Adicionar Informação</button>
+                            <button class="add-info-btn" onclick="addExtraInfo()">+ Adicionar</button>
                         
                             <ul id="info-list"></ul> <!-- Lista para informações adicionais -->
                         </div>                   
@@ -579,19 +578,66 @@
             const dropdown = document.getElementById('dropdown-menu');
             dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
         };
-
+    
         function showPage(page) {
             let content = '';
             if (page === 'perfil') {
-                content = document.getElementById('content').innerHTML; // Exibe o conteúdo do perfil
-            } else if (page === 'configuracoes') {
-                content = '<h2>Configurações</h2><p>Informações das configurações aqui...</p>';
+                content = `
+                    <h2>Perfil</h2>
+                    <div class="form-group">
+                        <label for="tipo">Tipo:</label>
+                        <select id="tipo" required>
+                            <option value="pai">Pai</option>
+                            <option value="responsavel">Responsável</option>
+                        </select>
+                    </div>
+                    <form id="perfil-form">
+                        <div class="form-group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="idade">Idade:</label>
+                            <input type="number" id="idade" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nivel-autismo">Nível do Autismo:</label>
+                            <select id="nivel-autismo" required>
+                                <option value="leve">Leve</option>
+                                <option value="moderado">Moderado</option>
+                                <option value="severo">Severo</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email do responsável:</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="extra-info" id="extra-info-container">
+                            <h2>Adiconar Informações Extras</h2>
+                            <div class="form-group">
+                                <input type="text" id="extra-info" placeholder="Digite aqui...">
+                            </div>
+                            <button class="add-info-btn" onclick="addExtraInfo()">+ Adicionar</button>
+                            <ul id="info-list"></ul> <!-- Lista para informações adicionais -->
+                        </div>                   
+                        <div class="form-group">
+                            <button type="submit">Salvar</button>
+                        </div>
+                    </form>
+                `;
             } else if (page === 'ajuda') {
-                content = '<h2>Ajuda</h2><p>Informações de ajuda aqui...</p>';
+                content = `
+                    <h2 style="color: black; margin-bottom:20px;">Ajuda</h2>
+                    <p style="color: black;">Bem-vindo à seção de ajuda do Autily!</p> 
+                    <p style="color: black;">1. O autily tem como objetivo facilitar e auxiliar o seu cotidiano</p> 
+                    <p style="color: black;">2. Ao clicar na rotina, voce vera a rotina do dia que seus pais ou responsaveis te deixaram!</p>
+                    <p style="color: black;">3. Ao clicar nos Jogos o autily te dara varias opções de jogos, escolha o que mais te agrada e jogue a vontade!</p> 
+                    <p style="color: black;">Para mais informações entrar em contato com a equipe autily pelo email abaixo:</p>
+                `;
             }
-            
+    
             document.getElementById('content').innerHTML = content;
-
+    
             // Adiciona a funcionalidade de salvar para o formulário
             if (page === 'perfil') {
                 document.getElementById('perfil-form').onsubmit = function(event) {
@@ -600,29 +646,16 @@
                     closeModal();
                 };
             }
-
+    
             document.getElementById('page-content').style.display = 'block';
         }
-
+    
         function closeModal() {
             document.getElementById('page-content').style.display = 'none';
         }
-
-        function addExtraInfo() {
-            const extraInfoInput = document.getElementById('extra-info');
-            const extraInfoValue = extraInfoInput.value.trim();
-            if (extraInfoValue) {
-                const extraInfoContainer = document.getElementById('extra-info-container');
-                const newInfo = document.createElement('div');
-                newInfo.textContent = extraInfoValue;
-                extraInfoContainer.appendChild(newInfo);
-                extraInfoInput.value = '';
-            } else {
-                alert('Por favor, insira uma informação.');
-            }
-        }
+    
         const infoList = [];
-
+    
         function addExtraInfo() {
             const extraInfoInput = document.getElementById('extra-info');
             const info = extraInfoInput.value.trim();
@@ -633,12 +666,12 @@
                 updateInfoList(); // Atualiza a lista exibida
             }
         }
-
+    
         function deleteInfo(index) {
             infoList.splice(index, 1);
             updateInfoList(); // Atualiza a lista exibida
         }
-
+    
         function editInfo(index) {
             const newInfo = prompt('Edite a informação:', infoList[index]);
             if (newInfo !== null) {
@@ -646,30 +679,33 @@
                 updateInfoList(); // Atualiza a lista exibida
             }
         }
-
+    
         function updateInfoList() {
             const infoListElement = document.getElementById('info-list');
             infoListElement.innerHTML = ''; // Limpa a lista antes de re-popular
-
+    
             infoList.forEach((info, index) => {
                 const li = document.createElement('li');
                 li.textContent = info;
-
+    
                 const editButton = document.createElement('button');
                 editButton.textContent = '✏️ Editar';
                 editButton.onclick = () => editInfo(index);
-
+    
                 const deleteButton = document.createElement('button');
                 deleteButton.textContent = '🗑️ Deletar';
                 deleteButton.onclick = () => deleteInfo(index);
-
+    
                 li.appendChild(editButton);
                 li.appendChild(deleteButton);
                 infoListElement.appendChild(li);
             });
         }
-
-
     </script>
+    
+    
+    
+    
+
 </body>
 </html>
